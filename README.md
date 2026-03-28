@@ -1,64 +1,36 @@
 # Output Doubler – Audio Duplication / Routing Tool
 
-**Developer:** Burak Bozteke
+**Developer:** Burak Bozteke  
 **Platform:** Windows 10 (2004+)
 
 ---
 
-## Overview
+## What Does the Program Do?
 
-**Output Doubler** allows you to duplicate the audio of specific applications to a secondary audio output device while keeping playback on the default device.
+This program allows you to route the audio of applications on your computer  
+to a secondary audio output device simultaneously, alongside your default audio device.
 
-This means audio is **copied**, not moved.
+Additionally, you can route an input device (such as a microphone) directly  
+to the selected secondary output device.
 
-The original application continues playing through the default device, and Output Doubler forwards the same audio to another device you choose.
+### Example Usage Scenarios
 
----
+- Hearing an application's audio from both headphones and speakers at the same time  
+- Routing a music player to a separate sound card  
+- Cloning game audio to a different output device  
+- Routing your microphone to a different sound card or virtual output  
 
-## Example Use Cases
-
-* Listen to audio from both **headphones and speakers simultaneously**
-* Route a **music player to a separate sound card**
-* Duplicate **game audio to another output device**
-* Send audio to **streaming, monitoring, or external hardware**
+**Important:**  
+This program **copies** the audio, it does not move it.  
+The application continues to play audio from the default device; the program only forwards  
+the same audio to the secondary device you selected.
 
 ---
 
 ## System Requirements
 
-* Windows 10 version 2004 (May 2020 Update) or newer
-* Minimum **2 audio output devices**
-
-  * Examples:
-
-    * Headphones
-    * Speakers
-    * USB DAC
-    * HDMI Audio Device
-
----
-
-## Recommendation: Virtual Audio Device
-
-It is recommended to have a **virtual audio device** installed on your system.
-
-Because Output Doubler requires at least **one additional output device** besides your default device.
-
-If you only have one physical output device, you can install a virtual sound card application to create an extra output.
-
-Example purposes:
-
-* Use as secondary routing device
-* Create virtual monitoring paths
-* Improve routing flexibility
-
-Examples of virtual audio device software:
-
-* VB-Audio Virtual Cable
-* Virtual Audio Cable
-* VoiceMeeter Virtual Input
-
-After installation, the virtual device will appear in the **Secondary Output Device** list and can be selected normally.
+- Windows 10 version 2004 (May 2020 Update) or higher  
+- At least **2 audio output devices** (headphones + speakers, USB DAC, etc.)
 
 ---
 
@@ -66,168 +38,152 @@ After installation, the virtual device will appear in the **Secondary Output Dev
 
 ### 1. Run the Program
 
-Launch:
+Double-click the `OutputDoubler.exe` file.
 
-```
-OutputDoubler.exe
-```
-
-* The program runs as **single instance only**
-* Opening again will bring the existing window to front
+- The program runs as a **single instance**  
+- Opening it again brings the existing window to the front  
 
 ---
 
 ### 2. Select Secondary Output Device
 
-From the dropdown:
+From the **"Secondary Output Device"** dropdown:
 
-**Secondary Output Device**
+- Select the device you want to route audio to  
 
-Select the device you want audio duplicated to.
-
-**Note:**
-
-Device marked with:
-
-```
-[DEFAULT]
-```
-
-cannot be selected, because audio already plays there.
+**Note:**  
+The device marked with `[DEFAULT]` is the Windows default device.  
+You cannot select it because audio is already playing there.
 
 ---
 
 ### 3. Select Applications
 
-The application list shows programs **currently playing audio**
+The list shows applications currently playing audio.
 
-Checkbox behavior:
-
-| Action      | Result         |
-| ----------- | -------------- |
-| ✓ Checked   | Routing starts |
-| ☐ Unchecked | Routing stops  |
+- ✓ Checked → Routing starts (audio duplicated)  
+- ☐ Unchecked → Routing stops  
 
 ---
 
 ### 4. Monitor Routing
 
-Enable:
+Enable **"Monitor Routing"**
 
-```
-Monitor Routing
-```
-
-This allows you to also hear routed audio locally.
-
-This option activates only when routing is active.
+- Lets you hear routed audio from your default device as well  
+- Activates only when at least one routing is active  
 
 ---
 
-### 5. Refresh Application List
+### 5. Input Routing (Microphone)
 
-If applications open or close:
+- Select a device from **"Input Device"**  
+- Enable **"Route Input to Output"**  
 
-* Press **Refresh button**
-* Or press **F5**
+To refresh input devices:
 
-**Important:**
-
-Refresh will stop all active routings.
+- Use the **Refresh** button next to the input list  
 
 ---
 
-### 6. Change Output Device
+### 6. Refreshing the List
 
-When selecting a different device:
+Lists update automatically in the background.
 
-* All routings stop automatically
-* All checkboxes reset
+Manual refresh options:
 
-You must select applications again.
+- Press **Refresh (F5)**  
+- Press **F5**
+
+**Important:**  
+Manual refresh stops all active routings.
+
+---
+
+### 7. Background Tracking & Auto-Route
+
+- If a routed app closes → routing stops automatically  
+- If an input device disconnects → safely removed  
+- Prevents crashes and stale entries  
+
+Enable **"Auto-Route New Apps"**:
+
+- Newly opened audio apps are automatically routed  
+
+---
+
+### 8. Changing Devices
+
+When selecting a different output device:
+
+- All routings stop  
+- All selections reset  
+
+You must re-select applications.
+
+---
+
+### 9. System Tray
+
+- Program can minimize to system tray  
+- Right-click tray icon:
+
+  - **Restore**  
+  - **Exit**
 
 ---
 
 ## Status Bar
 
-Located at the bottom.
+Located at the bottom:
 
-Displays:
-
-**Ready state**
-
-```
-Ready. No active routing.
-```
-
-**Active state**
-
-```
-Active routing: X
-```
+- `Ready. No active routing.` → Idle state  
+- `Active routing: X` → X apps currently routed  
 
 ---
 
 ## Keyboard Shortcuts
 
-| Key   | Function                 |
-| ----- | ------------------------ |
-| F5    | Refresh list             |
-| Tab   | Navigate controls        |
-| Space | Toggle selected checkbox |
+| Key   | Function                    |
+|-------|---------------------------|
+| F5    | Refresh lists             |
+| Tab   | Navigate UI               |
+| Space | Toggle selected checkbox  |
 
 ---
 
-## FAQ
+## Frequently Asked Questions
 
 ### Program does not open
 
-Ensure your Windows version is **2004 or newer**
-
-This software uses the **Windows Process Loopback API**, which is unavailable in older versions.
+Make sure you're using **Windows 10 2004 or newer**.  
+The app depends on the **Process Loopback API**.
 
 ---
 
-### Application does not appear
+### Application not listed
 
-Application must be actively playing audio.
-
-Start playback and press **F5**
+- The app must be actively playing audio  
+- Start playback and press **F5**
 
 ---
 
 ### Audio delay
 
-Expected latency:
-
-```
-~20ms
-```
-
-Rare hardware-dependent delays may occur.
+- Expected latency: **~20 ms**  
+- Rare hardware-based delays may occur  
 
 ---
 
 ### Cannot select default device
 
-This is intentional.
-
-Routing to the same device is unnecessary.
-
-Select another device.
-
----
-
-## Technical Notes
-
-* Uses Windows Process Loopback Capture
-* Low latency audio duplication
-* No virtual drivers required
-* No audio quality loss
+- This is intentional  
+- Audio already plays there  
+- Select a different device  
 
 ---
 
 ## License
 
-© 2026 Burak Bozteke
+© 2026 Burak Bozteke  
 All rights reserved.
