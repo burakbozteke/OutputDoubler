@@ -100,19 +100,7 @@ Manual refresh stops all active routings.
 
 ---
 
-### 7. Background Tracking & Auto-Route
-
-- If a routed app closes → routing stops automatically  
-- If an input device disconnects → safely removed  
-- Prevents crashes and stale entries  
-
-Enable **"Auto-Route New Apps"**:
-
-- Newly opened audio apps are automatically routed  
-
----
-
-### 8. Changing Devices
+### 7. Changing Devices
 
 When selecting a different output device:
 
@@ -123,7 +111,7 @@ You must re-select applications.
 
 ---
 
-### 9. System Tray
+### 8. System Tray
 
 - Program can minimize to system tray  
 - Right-click tray icon:
